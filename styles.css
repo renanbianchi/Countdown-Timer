@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-night-color: #000000;
+  --bg-day-color: #FFFFFF;
+  --icon-bg-color:#E1E1E6;
+  --icon-bg-color-selected: #02799D;
+  --icon-color: #323238;
+  --icon-bg-color-hover: #babacd;
+  --icon-color-selected: #FFFFFF;
+  --text-color: #323238;
+  --button-color-hover: #727281;
+}
+
+body {
+  display: grid;
+  font-family: 'roboto', sans serif;
+  min-height: 100vh;
+  align-items: center;
+}
+
+main {
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  gap: 19.2rem;
+
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+}
+
+.timer span {
+  color: var(--text-color);
+  font-size: clamp(5rem, 20rem, 32.1rem);
+  
+}
+
+.controls {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.sounds {
+  display: grid;
+  gap: 6rem 3.2rem;
+  grid-template-columns: 15.4rem 15.4rem;
+  grid-template-rows: 11.3rem 11.3rem;
+}
+
+.sounds button {
+  min-width: clamp(1rem, 15.2rem, 20rem);
+  background: var(--icon-bg-color);
+  border-radius: 24px;
+  color: var(--icon-color);
+}
+
+.sounds .selected {
+  background-color: var(--icon-bg-color-selected);
+}
+
+.controls .hide {
+  display: none;
+}
+
+.sounds .selected svg path {
+  fill: var(--icon-color-selected);
+}
+
+.sounds button:hover {
+background-color: var(--icon-bg-color-hover)
+}
+
+.sounds button:active {
+  transform: scale(0.9);
+  background-color: var(--icon-bg-color-selected);
+}
+
+.controls button:hover svg path{
+  fill: var(--button-color-hover);
+}
+
+.controls button:active svg {
+  transform: scale(0.9);
+}
+
+
+
+
+
