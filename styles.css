@@ -21,6 +21,7 @@ body {
 
   font-family: 'roboto', sans serif;
   min-height: 100vh;
+  display: grid;
   align-items: center;
 }
 
