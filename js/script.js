@@ -1,119 +1,83 @@
-const play = document.querySelector('.play')
-const stop = document.querySelector('.stop')
-const addFiveMinutes = document.querySelector('.addFiveMinutes')
-const removeFiveMinutes = document.querySelector('.removeFiveMinutes')
-const pause = document.querySelector('.pause')
-let soundForest = document.querySelector('.forest')
-let soundRain = document.querySelector('.rain')
-let soundCoffeeShop = document.querySelector('.coffeeShop')
-let soundFireplace = document.querySelector('.fireplace')
-let screenMinutes = document.querySelector('.minutes')
-let screenSeconds = document.querySelector('.seconds')
-let itsTime
-let natureMusic = document.querySelector("#nature-music")
-let fireMusic = document.querySelector("#fire-music")
-let cafeMusic = document.querySelector("#cafe-music")
-let rainMusic = document.querySelector("#rain-music")
+import {elements} from "./elements.js";
+import sounds from "./sounds.js";
+let sound = sounds();
 
-function StopAllSound() {
-  natureMusic.pause()
-  natureMusic.currentTime = 0;
-  rainMusic.pause()
-  rainMusic.currentTime = 0;
-  fireMusic.pause()
-  fireMusic.currentTime = 0;
-  cafeMusic.pause()
-  cafeMusic.currentTime = 0;
-}
+let {
+  playbtn,
+  stopbtn,
+  addFiveMinutes,
+  removeFiveMinutes,
+  pausebtn,
+  soundForest,
+  soundRain,
+  soundCoffeeShop,
+  soundFireplace,
+  screenMinutes,
+  screenSeconds,
+  itsTime,
+} = elements;
+
 
 function giveMeANumber(minutes, seconds) {
-  screenMinutes.textContent = String(minutes).padStart(2, '0')
-  screenSeconds.textContent = String(seconds).padStart(2, '0')
-}
+  screenMinutes.textContent = String(minutes).padStart(2, '0');
+  screenSeconds.textContent = String(seconds).padStart(2, '0');
+};
 
 function TimeIsRunningOut() {
   itsTime = setTimeout(function () {
-    let seconds = Number(screenSeconds.textContent)
-    let minutes = Number(screenMinutes.textContent)
-
-    if (minutes <= 0 && seconds <= 0) {
-      return
+    let seconds = Number(screenSeconds.textContent);
+    let minutes = Number(screenMinutes.textContent);
+    
+    if (minutes >= 100) {
+      sound.stop();
+      giveMeANumber(25, 0);
+      alert("Whoa, take it easy! you got plenty of time, don't you?");
+      pausebtn.classList.add('hide');
+      playbtn.classList.remove('hide');
+      return;
     }
-
+    
+    if (minutes < 0 ) {
+      sound.stop();
+      alert("Time is up!");
+      giveMeANumber(25, 0);
+      pausebtn.classList.add('hide')
+      playbtn.classList.remove('hide')
+      return;
+    }
     if (seconds <= 0) {
-      seconds = 60
-      --minutes
+      seconds = 3;
+      --minutes;
     }
-
-    giveMeANumber(minutes, --seconds)
-
-    TimeIsRunningOut()
-  }, 1000)
-}
-
-soundForest.addEventListener('click', function () {
-  soundRain.classList.remove('selected')
-  soundCoffeeShop.classList.remove('selected')
-  soundFireplace.classList.remove('selected')
-  soundForest.classList.add('selected')
-})
-
-soundRain.addEventListener('click', function () {
-  soundForest.classList.remove('selected')
-  soundFireplace.classList.remove('selected')
-  soundCoffeeShop.classList.remove('selected')
-  soundRain.classList.add('selected')
-})
-
-soundCoffeeShop.addEventListener('click', function () {
-  soundForest.classList.remove('selected')
-  soundRain.classList.remove('selected')
-  soundFireplace.classList.remove('selected')
-  soundCoffeeShop.classList.add('selected')
-})
-
-soundFireplace.addEventListener('click', function () {
-  soundForest.classList.remove('selected')
-  soundRain.classList.remove('selected')
-  soundCoffeeShop.classList.remove('selected')
-  soundFireplace.classList.add('selected')
-})
+    
+    giveMeANumber(minutes, --seconds);
+    
+    TimeIsRunningOut();
+  }, 1000);
+};
 
 
-play.addEventListener('click', function () {
+playbtn.addEventListener('click', function () {
   TimeIsRunningOut()
-  play.classList.add('hide')
-  pause.classList.remove('hide')
-  StopAllSound()
-  if (soundForest.classList.contains = 'selected') {
-    StopAllSound();
-    natureMusic.play();
-  }
-  if (soundRain.classList.contains = 'selected') {
-    StopAllSound();
-     rainMusic.play();
-     rainMusic.loop = true;
-  }
-  /* if (soundFireplace.classList.contains = 'selected') {
-    StopAllSound();
-     fireMusic.play();
-     fireMusic.loop = true;
-  } */
-  
+  sound.pressButton()
+  playbtn.classList.add('hide')
+  pausebtn.classList.remove('hide')
 })
 
-pause.addEventListener('click', function () {
+pausebtn.addEventListener('click', function () {
   clearTimeout(itsTime)
-  pause.classList.add('hide')
-  play.classList.remove('hide')
+  sound.stop()
+  pausebtn.classList.add('hide')
+  playbtn.classList.remove('hide')
 })
 
-stop.addEventListener('click', function () {
+stopbtn.addEventListener('click', function () {
   clearTimeout(itsTime)
   giveMeANumber(25, 0)
-  pause.classList.add('hide')
-  play.classList.remove('hide')
-  StopAllSound()
+  sound.stop()
+  pausebtn.classList.add('hide')
+  playbtn.classList.remove('hide')
+  
 })
 
 addFiveMinutes.addEventListener('click', function () {
@@ -125,5 +89,44 @@ addFiveMinutes.addEventListener('click', function () {
 removeFiveMinutes.addEventListener('click', function () {
   let minutes = Number(screenMinutes.textContent)
   let seconds = Number(screenSeconds.textContent)
-  giveMeANumber(minutes - 5, seconds)
+  if (minutes<=-1 && seconds<=-1) {
+    giveMeANumber(0, 0);
+  }
+  else {giveMeANumber(minutes - 5, seconds)}
+})
+
+soundForest.addEventListener('click', function () {
+  soundRain.classList.remove('selected')
+  soundCoffeeShop.classList.remove('selected')
+  soundFireplace.classList.remove('selected')
+  soundForest.classList.add('selected')
+  sound.stop()
+  sound.check()
+})
+
+soundRain.addEventListener('click', function () {
+  soundForest.classList.remove('selected')
+  soundFireplace.classList.remove('selected')
+  soundCoffeeShop.classList.remove('selected')
+  soundRain.classList.add('selected')
+  sound.stop()
+  sound.check()
+})
+
+soundCoffeeShop.addEventListener('click', function () {
+  soundForest.classList.remove('selected')
+  soundRain.classList.remove('selected')
+  soundFireplace.classList.remove('selected')
+  soundCoffeeShop.classList.add('selected')
+  sound.stop()
+  sound.check()
+})
+
+soundFireplace.addEventListener('click', function () {
+  soundForest.classList.remove('selected')
+  soundRain.classList.remove('selected')
+  soundCoffeeShop.classList.remove('selected')
+  soundFireplace.classList.add('selected')
+  sound.stop()
+  sound.check()
 })

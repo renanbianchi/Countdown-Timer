@@ -18,14 +18,26 @@
 }
 
 body {
-  display: grid;
+
   font-family: 'roboto', sans serif;
   min-height: 100vh;
   align-items: center;
 }
 
+.lightmode {
+  justify-self: right;
+  margin: 0 6.4rem;
+  top: 6.4rem;
+}
+
+.darkmode {
+  justify-self: right;
+  margin: 0 6.4rem;
+  top: 6.4rem;
+}
+
 main {
-  justify-self: center;
+  justify-content: center;
   align-self: center;
   display: flex;
   gap: 19.2rem;
