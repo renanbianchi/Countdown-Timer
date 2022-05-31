@@ -60,6 +60,7 @@ button {
 
 .controls {
   display: flex;
+  margin-bottom: 0.1rem;
   align-items: flex-start;
   justify-content: space-evenly;
 }

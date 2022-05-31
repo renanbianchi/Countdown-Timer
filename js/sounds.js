@@ -1,12 +1,9 @@
-import {elements} from "./elements.js"
-
-let {
-  soundForest,
+import {soundForest,
   soundRain,
   soundCoffeeShop,
   soundFireplace,
-  playbtn,
-} = elements
+  playbtn
+} from "./elements.js"
 
 
 export default function() {

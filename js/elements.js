@@ -9,9 +9,8 @@ let soundCoffeeShop = document.querySelector('.coffeeShop')
 let soundFireplace = document.querySelector('.fireplace')
 let screenMinutes = document.querySelector('.minutes')
 let screenSeconds = document.querySelector('.seconds')
-let itsTime
 
-export const elements = {
+export {
   playbtn,
   stopbtn,
   addFiveMinutes,
@@ -23,5 +22,4 @@ export const elements = {
   soundFireplace,
   screenMinutes,
   screenSeconds,
-  itsTime,
 }
