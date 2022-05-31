@@ -53,6 +53,7 @@ button {
 }
 
 .timer span {
+  display: table-cell;
   color: var(--text-color);
   font-size: clamp(5rem, 20rem, 32.1rem);
   

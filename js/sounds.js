@@ -2,7 +2,8 @@ import {soundForest,
   soundRain,
   soundCoffeeShop,
   soundFireplace,
-  playbtn
+  playbtn,
+  stopbtn
 } from "./elements.js"
 
 
@@ -45,11 +46,15 @@ export default function() {
     audioCafe.pause()
     audioFire.pause()
     audioRain.pause()
-    audioRain.currentTime = 0;
-    audioForest.currentTime = 0;
-    audioFire.currentTime = 0;
-    audioCafe.currentTime = 0;
+
+    stopbtn.onclick = function() {
+      audioRain.currentTime = 0;
+      audioForest.currentTime = 0;
+      audioFire.currentTime = 0;
+      audioCafe.currentTime = 0;
+    }
   }
+  
 
   return {
     pressButton,
