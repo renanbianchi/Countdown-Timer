@@ -3,7 +3,11 @@ import {soundForest,
   soundCoffeeShop,
   soundFireplace,
   playbtn,
-  stopbtn
+  stopbtn,
+  coffeeSlider,
+  fireplaceSlider,
+  rainSlider,
+  forestSlider,
 } from "./elements.js"
 
 
@@ -15,37 +19,60 @@ export default function() {
   
   function pressButton() {
   if (soundForest.classList.contains('selected')) {
-    stop();
+    stopMusic();
     audioForest.play();
     audioForest.loop = true;
+    forestSlider.addEventListener('change', function() {
+      setVolume(soundForest);
+    })
   }
   else if (soundRain.classList.contains('selected')) {
-    stop();
+    stopMusic();
     audioRain.play();
-    audioForest.loop = true;
+    audioRain.loop = true;
+    rainSlider.addEventListener('change', function() {
+      setVolume(soundRain);
+    })
   }
   else if (soundCoffeeShop.classList.contains('selected')) {
-    stop();
+    stopMusic();
     audioCafe.play();
     audioCafe.loop = true;
+    coffeeSlider.addEventListener('change', function () {
+      setVolume(soundCoffeeShop);
+    })
+    
   }
   else if (soundFireplace.classList.contains('selected')) {
-    stop();
+    stopMusic();
     audioFire.play();
     audioFire.loop = true;
-  } 
+    fireplaceSlider.addEventListener('change', function() {
+      setVolume(soundFireplace);
+    })
+  }
+  else {
+    stopMusic();
+  }
 }
 
-  function check() {
+  function checkMusic() {
     if (playbtn.classList.contains('hide'))
     pressButton()
   }
 
-  function stop() {
-    audioForest.pause()
-    audioCafe.pause()
-    audioFire.pause()
-    audioRain.pause()
+  function setVolume () {
+    audioCafe.volume = coffeeSlider.value / 100;
+    audioRain.volume = rainSlider.value / 100;
+    audioForest.volume = forestSlider.value / 100;
+    audioFire.volume = fireplaceSlider.value / 100;
+  }
+
+  function stopMusic() {
+    audioForest.pause();
+    audioCafe.pause();
+    audioFire.pause();
+    audioRain.pause();
 
     stopbtn.onclick = function() {
       audioRain.currentTime = 0;
@@ -57,13 +84,13 @@ export default function() {
   
 
   return {
-    pressButton,
-    audioCafe,
     audioForest,
+    audioCafe,
     audioFire,
     audioRain,
-    stop,
-    check,
+    pressButton,
+    stopMusic,
+    checkMusic,
    }
 
 }

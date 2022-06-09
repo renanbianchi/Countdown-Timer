@@ -1,1 +1,1 @@
-This is a basic countdown timer project still in development.
+This is a basic countdown timer. Code needs further optimization and more modularity. 

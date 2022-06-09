@@ -9,8 +9,20 @@ let soundCoffeeShop = document.querySelector('.coffeeShop')
 let soundFireplace = document.querySelector('.fireplace')
 let screenMinutes = document.querySelector('.minutes')
 let screenSeconds = document.querySelector('.seconds')
+let lightmode = document.querySelector('.lightmode')
+let nightmode = document.querySelector('.nightmode')
+let bgForest = document.querySelector('.bgforest')
+let bgRain = document.querySelector('.bgrain')
+let bgCoffee = document.querySelector('.bgcoffee')
+let bgFireplace = document.querySelector('.bgfireplace')
+let forestSlider = document.querySelector('.forest-range')
+let rainSlider = document.querySelector('.rain-range')
+let coffeeSlider = document.querySelector('.coffee-range')
+let fireplaceSlider = document.querySelector('.fireplace-range')
 
 export {
+  nightmode,
+  lightmode,
   playbtn,
   stopbtn,
   addFiveMinutes,
@@ -22,4 +34,12 @@ export {
   soundFireplace,
   screenMinutes,
   screenSeconds,
+  bgForest,
+  bgRain,
+  bgCoffee,
+  bgFireplace,
+  forestSlider,
+  rainSlider,
+  coffeeSlider,
+  fireplaceSlider
 }
