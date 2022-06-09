@@ -2,13 +2,9 @@ import {screenMinutes,
   screenSeconds, 
   playbtn, 
   pausebtn,
-  soundForest,
-  soundCoffeeShop,
-  soundRain,
-  soundFireplace,
 } from "./elements.js"
 import sounds from "./sounds.js"
-let sound = sounds();
+const sound = sounds();
 let itstime;
 
 export function timers() {
@@ -17,7 +13,7 @@ function giveMeANumber(minutes, seconds) {
   screenSeconds.textContent = String(seconds).padStart(2, '0');
 }
 
-function TimeIsRunning() {
+ function TimeIsRunning() {
   itstime = setTimeout(function () {
     let seconds = Number(screenSeconds.textContent);
     let minutes = Number(screenMinutes.textContent);
@@ -61,6 +57,6 @@ return {
   giveMeANumber,
   TimeIsRunning,
   stopTimer,
-  checkTimer
+  checkTimer,
   };
 };
