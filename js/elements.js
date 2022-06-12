@@ -1,6 +1,6 @@
-const playbtn = document.querySelector('.play')
-const stopbtn = document.querySelector('.stop')
-const pausebtn = document.querySelector('.pause')
+const playBtn = document.querySelector('.play')
+const stopBtn = document.querySelector('.stop')
+const pauseBtn = document.querySelector('.pause')
 const addFiveMinutes = document.querySelector('.addFiveMinutes')
 const removeFiveMinutes = document.querySelector('.removeFiveMinutes')
 const soundForest = document.querySelector('.forest')
@@ -19,15 +19,17 @@ const forestSlider = document.querySelector('.forest-range')
 const rainSlider = document.querySelector('.rain-range')
 const coffeeSlider = document.querySelector('.coffee-range')
 const fireplaceSlider = document.querySelector('.fireplace-range')
+const ship = document.querySelector('.ship')
+const main = document.querySelector('main')
 
 export {
   nightmode,
   lightmode,
-  playbtn,
-  stopbtn,
+  playBtn,
+  stopBtn,
   addFiveMinutes,
   removeFiveMinutes,
-  pausebtn,
+  pauseBtn,
   soundForest,
   soundRain,
   soundCoffeeShop,
@@ -41,5 +43,7 @@ export {
   forestSlider,
   rainSlider,
   coffeeSlider,
-  fireplaceSlider
+  fireplaceSlider,
+  ship,
+  main,
 }

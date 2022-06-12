@@ -1,8 +1,8 @@
-import {playbtn,
-  stopbtn,
+import {playBtn,
+  stopBtn,
   addFiveMinutes,
   removeFiveMinutes,
-  pausebtn,
+  pauseBtn,
   soundForest,
   soundRain,
   soundCoffeeShop,
@@ -11,55 +11,72 @@ import {playbtn,
   screenSeconds,
   lightmode,
   nightmode,
+  ship,
  } from "./elements.js";
 import sounds from "./sounds.js";
-import { timers } from "./timers.js"
-import buttons from "./buttons.js"
-
+import { timers } from "./timers.js";
+import buttons from "./buttons.js";
 const button = buttons();
 const sound = sounds();
 const timer = timers();
 
+
+
 lightmode.addEventListener('click', function () {
-  button.lighton();
+  sound.stopMusic();
+  button.lightOn();
+  sound.restoreSounds();
 })
 
 nightmode.addEventListener('click', function() {
-  button.nighton();
+  sound.stopMusic();
+  button.nightOn();
+  sound.restoreSounds();
+})
+
+ship.addEventListener('click', function() {
+  ship.classList.add('selected');
+  sound.shipSound.play();
+  sound.stopMusic();
+  timer.stopTimer();
+  sound.replaceSounds();
+  button.resetButtons();
+})
+
+ship.addEventListener('animationend', function() {
+  button.metroidOn();
 })
 
 
-playbtn.addEventListener('click', function () {
+playBtn.addEventListener('click', function () {
   timer.TimeIsRunning();
   sound.pressButton();
   button.pressPlay()
 })
 
-pausebtn.addEventListener('click', function () {
+pauseBtn.addEventListener('click', function () {
   timer.stopTimer();
   sound.stopMusic();
   button.resetButtons();
 })
 
-stopbtn.addEventListener("click", function () {
+stopBtn.addEventListener("click", function () {
+  sound.stopMusic();
   timer.stopTimer();
   timer.giveMeANumber(25, 0);
-  sound.stopMusic();
   button.resetButtons();
 })
 
-
-
 addFiveMinutes.addEventListener('click', function () {
-  let minutes = Number(screenMinutes.textContent);
-  let seconds = Number(screenSeconds.textContent);
+  const minutes = Number(screenMinutes.textContent);
+  const seconds = Number(screenSeconds.textContent);
   timer.giveMeANumber(minutes + 5, seconds);
   timer.checkTimer(minutes);
 })
 
 removeFiveMinutes.addEventListener('click', function () {
-  let minutes = Number(screenMinutes.textContent);
-  let seconds = Number(screenSeconds.textContent);
+  const minutes = Number(screenMinutes.textContent);
+  const seconds = Number(screenSeconds.textContent);
   timer.giveMeANumber(minutes - 5, seconds);
   timer.checkTimer(minutes);
 })
