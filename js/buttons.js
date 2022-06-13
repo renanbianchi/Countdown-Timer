@@ -15,6 +15,14 @@ import {
   fireplaceSlider,
   rainSlider,
   coffeeSlider,
+  forestsvg,
+  rainsvg,
+  coffeesvg,
+  firesvg,
+  metroidsvg,
+  morphsvg,
+  ssvg,
+  samussvg,
   ship,
   main,
  } from "./elements.js";
@@ -28,6 +36,14 @@ export default function () {
     nightmode.classList.remove('hide');
     ship.classList.add('hide');
     main.classList.remove ('crt');
+    firesvg.classList.remove ('hide');
+    forestsvg.classList.remove ('hide');
+    rainsvg.classList.remove ('hide');
+    coffeesvg.classList.remove ('hide');
+    morphsvg.classList.add('hide');
+    metroidsvg.classList.add('hide');
+    ssvg.classList.add('hide');
+    samussvg.classList.add('hide');
     document.documentElement.style.setProperty('--bg-color', '#121214');
     document.documentElement.style.setProperty('--text-color', '#FFFFFF');
     document.documentElement.style.setProperty('--button-color', '#C4C4CC');
@@ -48,6 +64,14 @@ export default function () {
     lightmode.classList.remove('hide');
     ship.classList.remove('hide');
     main.classList.remove ('crt');
+    firesvg.classList.remove ('hide');
+    forestsvg.classList.remove ('hide');
+    rainsvg.classList.remove ('hide');
+    coffeesvg.classList.remove ('hide');
+    morphsvg.classList.add('hide');
+    metroidsvg.classList.add('hide');
+    ssvg.classList.add('hide');
+    samussvg.classList.add('hide');
     document.documentElement.style.setProperty('--bg-color', '#FFFFFF');
     document.documentElement.style.setProperty('--text-color', '#323238');
     document.documentElement.style.setProperty('--button-color-hover', '#727281');
@@ -67,13 +91,21 @@ export default function () {
     ship.classList.remove('selected');
     ship.classList.add('hide');
     main.classList.add ('crt');
+    firesvg.classList.add ('hide');
+    forestsvg.classList.add ('hide');
+    rainsvg.classList.add ('hide');
+    coffeesvg.classList.add ('hide');
+    morphsvg.classList.remove('hide');
+    metroidsvg.classList.remove('hide');
+    ssvg.classList.remove('hide');
+    samussvg.classList.remove('hide');
     document.documentElement.style.setProperty('--bg-color', '#98b418');
     document.documentElement.style.setProperty('--text-color', '#8FCE00');
     document.documentElement.style.setProperty('--button-color', '#FDBC7C');
     document.documentElement.style.setProperty('--button-color-hover', '#974C01');
     document.documentElement.style.setProperty('--icon-bg-color', '#FDBC7C');
-    document.documentElement.style.setProperty('--icon-color', '#2C9200');
-    document.documentElement.style.setProperty('--icon-color-selected', '#FEF010');
+    document.documentElement.style.setProperty('--icon-color', '#FFFFFF');
+    document.documentElement.style.setProperty('--icon-color-selected', '#323238');
     document.documentElement.style.setProperty('--icon-bg-color-selected', '#FDBC7C');
     document.documentElement.style.setProperty('--main-bg-color', '#2C9200');
     document.documentElement.style.setProperty('--background-image', 'url("images/Background.jpg")')

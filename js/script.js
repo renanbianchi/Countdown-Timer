@@ -12,6 +12,7 @@ import {playBtn,
   lightmode,
   nightmode,
   ship,
+  main,
  } from "./elements.js";
 import sounds from "./sounds.js";
 import { timers } from "./timers.js";
@@ -19,7 +20,6 @@ import buttons from "./buttons.js";
 const button = buttons();
 const sound = sounds();
 const timer = timers();
-
 
 
 lightmode.addEventListener('click', function () {
@@ -36,17 +36,19 @@ nightmode.addEventListener('click', function() {
 
 ship.addEventListener('click', function() {
   ship.classList.add('selected');
-  sound.shipSound.play();
   sound.stopMusic();
+  sound.shipSound.play();
   timer.stopTimer();
   sound.replaceSounds();
   button.resetButtons();
+  main.classList.add ('blend');
+  lightmode.classList.add('hide');
 })
 
 ship.addEventListener('animationend', function() {
+  main.classList.remove('blend');
   button.metroidOn();
 })
-
 
 playBtn.addEventListener('click', function () {
   timer.TimeIsRunning();

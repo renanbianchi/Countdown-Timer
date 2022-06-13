@@ -9,6 +9,14 @@ const soundCoffeeShop = document.querySelector('.coffeeShop')
 const soundFireplace = document.querySelector('.fireplace')
 const screenMinutes = document.querySelector('.minutes')
 const screenSeconds = document.querySelector('.seconds')
+const forestsvg = document.querySelector('.forestsvg')
+const coffeesvg = document.querySelector('.coffeesvg')
+const rainsvg = document.querySelector('.rainsvg')
+const firesvg = document.querySelector('.firesvg')
+const morphsvg = document.querySelector('.morphsvg')
+const metroidsvg = document.querySelector('.metroidsvg')
+const ssvg = document.querySelector('.ssvg')
+const samussvg = document.querySelector('.samussvg')
 const lightmode = document.querySelector('.lightmode')
 const nightmode = document.querySelector('.nightmode')
 const bgForest = document.querySelector('.bgforest')
@@ -21,6 +29,7 @@ const coffeeSlider = document.querySelector('.coffee-range')
 const fireplaceSlider = document.querySelector('.fireplace-range')
 const ship = document.querySelector('.ship')
 const main = document.querySelector('main')
+const body = document.querySelector('body')
 
 export {
   nightmode,
@@ -44,6 +53,15 @@ export {
   rainSlider,
   coffeeSlider,
   fireplaceSlider,
+  forestsvg,
+  rainsvg,
+  firesvg,
+  metroidsvg,
+  morphsvg,
+  ssvg,
+  samussvg,
+  coffeesvg,
   ship,
   main,
+  body,
 }

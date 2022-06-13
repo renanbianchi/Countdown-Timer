@@ -73,6 +73,8 @@ function stopMusic() {
   audioCafe.pause();
   audioFire.pause();
   audioRain.pause();
+  shipSound.pause();
+  shipSound.currentTime = 0;
 
   stopBtn.onclick = function() {
     audioRain.currentTime = 0;
