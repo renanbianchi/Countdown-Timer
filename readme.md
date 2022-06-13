@@ -1,1 +1,1 @@
-This is a basic countdown timer. Code needs further optimization and more modularity. 
+This is a basic countdown timer. It has modularity, factories and even a little Easter Egg. Enjoy.

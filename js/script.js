@@ -53,7 +53,7 @@ ship.addEventListener('animationend', function() {
 playBtn.addEventListener('click', function () {
   timer.TimeIsRunning();
   sound.pressButton();
-  button.pressPlay()
+  button.pressPlay();
 })
 
 pauseBtn.addEventListener('click', function () {

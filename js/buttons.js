@@ -149,7 +149,7 @@ export default function () {
   function rainSelected() {
     document.documentElement.style.setProperty('--height-low', '11.2rem')
     removeSelected();
-    bgRain.classList.add('selected')
+    bgRain.classList.add('selected');
     soundRain.classList.add('selected');
     rainSlider.classList.remove('hide');
     
