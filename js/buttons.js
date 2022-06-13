@@ -76,9 +76,9 @@ export default function () {
     document.documentElement.style.setProperty('--icon-color-selected', '#FEF010');
     document.documentElement.style.setProperty('--icon-bg-color-selected', '#FDBC7C');
     document.documentElement.style.setProperty('--main-bg-color', '#2C9200');
-    document.documentElement.style.setProperty('--background-image', 'url("/images/Background.jpg")')
+    document.documentElement.style.setProperty('--background-image', 'url("images/Background.jpg")')
     document.documentElement.style.setProperty('--svg-fill', '#111111');
-    document.documentElement.style.setProperty('--font-family', "'VT323', sans serif")
+    document.documentElement.style.setProperty('--font-family', "'VT323', sans serif");
   }
 
   function pressPlay() {
@@ -100,10 +100,10 @@ export default function () {
     soundFireplace.classList.remove('selected');
     soundForest.classList.remove('selected');
     soundRain.classList.remove('selected');
-    forestSlider.classList.add('hide')
-    fireplaceSlider.classList.add('hide')
-    rainSlider.classList.add('hide')
-    coffeeSlider.classList.add('hide')
+    forestSlider.classList.add('hide');
+    fireplaceSlider.classList.add('hide');
+    rainSlider.classList.add('hide');
+    coffeeSlider.classList.add('hide');
   }
 
   function forestSelected() {
@@ -119,7 +119,7 @@ export default function () {
     removeSelected();
     bgRain.classList.add('selected')
     soundRain.classList.add('selected');
-    rainSlider.classList.remove('hide')
+    rainSlider.classList.remove('hide');
     
   }
 
