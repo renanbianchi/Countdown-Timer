@@ -1,6 +1,6 @@
-import {screenMinutes, 
+import {
+  screenMinutes, 
   screenSeconds,
-
 } from "./elements.js"
 import sounds from "./sounds.js"
 import buttons from "./buttons.js"
@@ -26,26 +26,30 @@ export function timers() {
           --minutes;
         }
       
-      giveMeANumber(minutes, --seconds);
-      TimeIsRunning();
-      checkTimer(minutes);
+        giveMeANumber(minutes, --seconds);
+        TimeIsRunning();
+        checkTimer(minutes);
     }, 1000);
   }
 
   function checkTimer(minutes, seconds) {
-    if (minutes > 90) {
+    seconds = Number(screenSeconds.textContent);
+    minutes = Number(screenMinutes.textContent);
+
+    if (minutes > 95) {
       stopTimer();
-      giveMeANumber(25, 0);
-      sound.stopMusic();
+      button.removeSelected();
       button.resetButtons();
+      giveMeANumber(25, 0);
       alert("Whoa, take it easy! You got plenty of time, don't you?");
     }
 
-    if (minutes <= 0) {
+    if (minutes < 0) {
       stopTimer();
+      button.removeSelected();
+      button.resetButtons();
+      sound.pressButton();
       giveMeANumber(25, 0);
-      sound.stopMusic();
-      button.resetButtons;
       alert("Time is up!");
     }
   }

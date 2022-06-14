@@ -22,7 +22,6 @@ export default function() {
     audioForest = new Audio("./audio/Woods.mp3");
     audioFire  = new Audio('./audio/Fire.mp3');
     audioRain = new Audio("./audio/Rain.mp3");
-    shipSound = new Audio("./audio/Arrival.mp3");
   }
 
   function replaceSounds() {
@@ -32,8 +31,13 @@ export default function() {
     audioFire  = new Audio('./audio/Samus.mp3');
   }
   
+  function checkMusic() {
+  if (playBtn.classList.contains('hide')) {
+  pressButton();
+  }}
+
   function pressButton() {
-  if (soundForest.classList.contains('selected')) {
+    if (soundForest.classList.contains('selected')) {
     stopMusic();
     audioForest.play();
     audioForest.loop = true;
@@ -56,7 +60,6 @@ export default function() {
     coffeeSlider.addEventListener('change', function () {
       setVolume(soundCoffeeShop);
     })
-    
   }
   else if (soundFireplace.classList.contains('selected')) {
     stopMusic();
@@ -75,6 +78,7 @@ function stopMusic() {
   audioRain.pause();
   shipSound.pause();
   shipSound.currentTime = 0;
+}
 
   stopBtn.onclick = function() {
   audioRain.currentTime = 0;
@@ -82,12 +86,8 @@ function stopMusic() {
   audioFire.currentTime = 0;
   audioCafe.currentTime = 0;
   }
-}
 
-  function checkMusic() {
-  if (playBtn.classList.contains('hide'));
-  pressButton();
-}
+
 
 function setVolume () {
   audioCafe.volume = coffeeSlider.value / 100;
@@ -95,8 +95,6 @@ function setVolume () {
   audioForest.volume = forestSlider.value / 100;
   audioFire.volume = fireplaceSlider.value / 100;
 }
-
-  
 
   return {
     audioForest,
@@ -112,4 +110,3 @@ function setVolume () {
    }
 
 }
-

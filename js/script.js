@@ -73,14 +73,20 @@ addFiveMinutes.addEventListener('click', function () {
   const minutes = Number(screenMinutes.textContent);
   const seconds = Number(screenSeconds.textContent);
   timer.giveMeANumber(minutes + 5, seconds);
-  timer.checkTimer(minutes);
+  timer.checkTimer();
 })
 
 removeFiveMinutes.addEventListener('click', function () {
   const minutes = Number(screenMinutes.textContent);
   const seconds = Number(screenSeconds.textContent);
-  timer.giveMeANumber(minutes - 5, seconds);
-  timer.checkTimer(minutes);
+  
+  if (minutes <= 5) {
+  timer.giveMeANumber(minutes -1, seconds);
+  }
+  else {
+    timer.giveMeANumber(minutes - 5, seconds);
+  }
+  timer.checkTimer();
 })
 
 soundForest.addEventListener('click', function () {
@@ -90,8 +96,8 @@ soundForest.addEventListener('click', function () {
 })
 
 soundRain.addEventListener('click', function () {
-  button.rainSelected();
   sound.stopMusic();
+  button.rainSelected();
   sound.checkMusic();
 })
 
